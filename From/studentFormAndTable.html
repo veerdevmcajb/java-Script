@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Student Registration Form</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="stylesheet" href="./style.css">
+  </head>
+  <body>
+    <h2>Student Registration</h2>
+
+    <form id="studentForm" novalidate>
+      <!-- Personal -->
+      <fieldset>
+        <legend>Personal Information</legend>
+        <div class="row">
+          <div style="flex: 1; min-width: 180px">
+            <label for="name">Name</label>
+            <input id="name" type="text" placeholder="Full name" />
+            <div class="error" id="nameError">
+              Name is required (min 3 chars)
+            </div>
+          </div>
+
+          <div style="width: 180px">
+            <label for="age">Age</label>
+            <input
+              id="age"
+              type="number"
+              placeholder="e.g. 22"
+              min="23"
+              max="100"
+            />
+            <div class="error" id="ageError">Enter valid age (23-100)</div>
+          </div>
+        </div>
+
+        <div style="margin-top: 8px">
+          <label for="email">Email</label>
+          <input id="email" type="email" placeholder="you@example.com" />
+          <div class="error" id="emailError">Enter a valid email</div>
+        </div>
+      </fieldset>
+
+      <!-- Academic -->
+      <fieldset>
+        <legend>Academic & Skills</legend>
+
+        <div>
+          <label for="course">Course</label>
+          <input
+            id="course"
+            type="text"
+            placeholder="Course name (e.g. B.Tech)"
+          />
+          <div class="error" id="courseError">Course is required</div>
+        </div>
+
+        <div style="margin-top: 10px">
+          <label>Gender</label>
+          <div
+            class="option-grid"
+            role="radiogroup"
+            aria-label="gender options"
+          >
+            <label class="option-item"
+              ><input type="radio" name="gender" value="Male" /> Male</label
+            >
+            <label class="option-item"
+              ><input type="radio" name="gender" value="Female" /> Female</label
+            >
+            <label class="option-item"
+              ><input type="radio" name="gender" value="Other" /> Other</label
+            >
+          </div>
+          <div class="error" id="genderError">Select a gender</div>
+        </div>
+
+        <div style="margin-top: 12px">
+          <label>Technologies (pick at least one)</label>
+
+          <div
+            style="
+              display: grid;
+              grid-template-columns: repeat(3, 1fr);
+              gap: 10px;
+              margin-top: 8px;
+            "
+          >
+            <!-- Frontend -->
+            <div>
+              <div class="muted" style="font-weight: 600; margin-bottom: 6px">
+                Frontend
+              </div>
+              <div class="option-grid" id="frontendGroup">
+                <label class="option-item"
+                  ><input type="checkbox" name="frontend" value="HTML" />
+                  HTML</label
+                >
+                <label class="option-item"
+                  ><input type="checkbox" name="frontend" value="CSS" />
+                  CSS</label
+                >
+                <label class="option-item"
+                  ><input type="checkbox" name="frontend" value="JS" />
+                  JS</label
+                >
+                <label class="option-item"
+                  ><input type="checkbox" name="frontend" value="React" />
+                  React</label
+                >
+                <label class="option-item"
+                  ><input type="checkbox" name="frontend" value="Angular" />
+                  Angular</label
+                >
+              </div>
+            </div>
+
+            <!-- Backend -->
+            <div>
+              <div class="muted" style="font-weight: 600; margin-bottom: 6px">
+                Backend
+              </div>
+              <div class="option-grid" id="backendGroup">
+                <label class="option-item"
+                  ><input type="checkbox" name="backend" value="Java" />
+                  Java</label
+                >
+                <label class="option-item"
+                  ><input type="checkbox" name="backend" value="Spring Boot" />
+                  Spring Boot</label
+                >
+                <label class="option-item"
+                  ><input type="checkbox" name="backend" value="Node" />
+                  Node</label
+                >
+                <label class="option-item"
+                  ><input type="checkbox" name="backend" value="Express" />
+                  Express</label
+                >
+              </div>
+            </div>
+
+            <!-- Database -->
+            <div>
+              <div class="muted" style="font-weight: 600; margin-bottom: 6px">
+                Database
+              </div>
+              <div class="option-grid" id="databaseGroup">
+                <label class="option-item"
+                  ><input type="checkbox" name="database" value="SQL" />
+                  SQL</label
+                >
+                <label class="option-item"
+                  ><input type="checkbox" name="database" value="MongoDB" />
+                  MongoDB</label
+                >
+              </div>
+            </div>
+          </div>
+
+          <div class="error" id="techError">Select at least one technology</div>
+        </div>
+      </fieldset>
+
+      <!-- Upload -->
+      <fieldset>
+        <legend>Upload</legend>
+        <label for="image">Profile Image</label>
+        <input id="image" type="file" accept="image/*" />
+        <div class="error" id="imageError">Upload an image</div>
+      </fieldset>
+
+      <button type="submit">Submit</button>
+    </form>
+
+    <div class="table-wrap">
+      <table id="studentTable" aria-live="polite">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Age</th>
+            <th>Course</th>
+            <th>Gender</th>
+            <th>Frontend</th>
+            <th>Backend</th>
+            <th>Database</th>
+            <th>Image</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+    <script src="./validation.js"></script>
+  </body>
+</html>

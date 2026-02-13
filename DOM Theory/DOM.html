@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- What is Event Propagation?
+
+When an event occurs on an element, it does not only trigger on that element. Instead, it propagates through the DOM tree.
+
+There are 3 phases:
+
+Capturing Phase (Event Capture)
+
+The event starts at the root of the DOM and moves down toward the target element.
+
+Rarely used but can be enabled.
+
+Target Phase
+
+The event reaches the target element where the action happened.
+
+Bubbling Phase (Event Bubble)
+
+The event moves up from the target element to the root (document), triggering handlers along the way.
+
+Most common phase used in JavaScript.
+
+ How to Observe Event Propagation -->
+<div id="outer" style="padding:30px; background:lightblue;">
+  Outer Div
+  <div id="inner" style="padding:30px; background:lightgreen;">
+    Inner Div
+    <button id="btn">Click Me</button>
+  </div>
+</div>
+
+
+<!-- abcd
+<ul>
+    <li>a</li>
+    <li>b</li>
+    <li>c</li>
+    <li>d</li>
+</ul> -->
+
+<script>
+const outer = document.getElementById("outer");
+const inner = document.getElementById("inner");
+const btn = document.getElementById("btn");
+
+
+
+
+
+// Bubbling phase (default)
+// outer.addEventListener("click", () => console.log("Outer clicked"));
+// inner.addEventListener("click", () => console.log("Inner clicked"));
+// btn.addEventListener("click", () => console.log("Button clicked"));
+
+
+// outer.addEventListener("click", () => console.log("Outer capturing"), true);
+// inner.addEventListener("click", () => console.log("Inner capturing"), true);
+// btn.addEventListener("click", () => console.log("Button capturing"), true);
+</script>
+
+
+<!-- If you click the button, console output:
+
+Button clicked
+Inner clicked
+Outer clicked
+
+
+ This shows bubbling: event goes from target → parent → ancestor.
+
+ Using Capturing Phase
+
+You can capture events on the way down by passing true as the third argument in addEventListener. -->
+<!-- 
+outer.addEventListener("click", () => console.log("Outer capturing"), true);
+inner.addEventListener("click", () => console.log("Inner capturing"), true);
+btn.addEventListener("click", () => console.log("Button capturing"), true); -->
+
+<!-- 
+Clicking button output:
+
+Outer capturing
+Inner capturing
+Button capturing
+Button clicked
+Inner clicked
+Outer clicked -->
+
+
+<!-- Capturing first → Target → Bubbling
+
+ Stopping Propagation
+
+Sometimes you don’t want the event to bubble up.
+
+btn.addEventListener("click", (e) => {
+  console.log("Button clicked");
+  e.stopPropagation(); // stops bubbling
+}); -->
+
+
+<!-- Now, only "Button clicked" will log. Inner and Outer won’t get triggered.
+
+ Summary
+Concept	Description
+Capturing Phase	Event travels top → bottom
+Target Phase	Event reaches the target element
+Bubbling Phase	Event travels bottom → top (most used)
+stopPropagation()	Stops event from going further
+preventDefault()	Stops default browser behavior (like form submit)
+
+Event propagation is important for:
+
+Event delegation (handle multiple child elements via parent)
+
+Preventing unwanted actions (stopPropagation)
+
+Controlling UI interactions efficiently -->
+  </body>
+</html>

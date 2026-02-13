@@ -1,0 +1,90 @@
+<!-- What is the DOM?
+
+DOM = Document Object Model.
+
+It represents your HTML as a tree structure where each element (<div>, <p>, <img>, etc.) is a node.
+
+Using JavaScript, you can access and manipulate these elements.
+
+Ways to Access DOM Elements
+1. getElementById()
+
+Finds an element using its id (must be unique). -->
+
+<p id="myPara">Hello World</p>
+<script>
+  const para = document.getElementById("myPara");
+  para.style.color = "blue"; // changes text color
+</script>
+<!-- 
+2. getElementsByClassName()
+
+Returns a HTMLCollection (like an array) of all elements with the given class. -->
+
+<p class="msg">One</p>
+<p class="msg">Two</p>
+<script>
+  const items = document.getElementsByClassName("msg");
+  items[0].style.color = "red";  // first element
+  items[1].style.color = "green"; // second element
+</script>
+<!-- 
+3. getElementsByTagName()
+
+Selects elements by their tag name (div, p, ul, etc.) -->
+
+<p>Hello</p>
+<p>Hi</p>
+<script>
+  const paras = document.getElementsByTagName("p");
+  paras[0].innerText = "Changed First";
+</script>
+<!-- 
+4. querySelector()
+
+Returns the first element that matches a CSS selector. -->
+
+<p class="note">First</p>
+<p class="note">Second</p>
+<script>
+  const firstNote = document.querySelector(".note");
+  firstNote.style.fontWeight = "bold"; // only the first one
+</script>
+<!-- 
+5. querySelectorAll()
+
+Returns all elements that match a CSS selector (NodeList). -->
+
+<p class="note">First</p>
+<p class="note">Second</p>
+<script>
+  const notes = document.querySelectorAll(".note");
+  notes.forEach(el => el.style.color = "purple"); // loop all
+</script>
+<!-- 
+ Manipulating DOM Elements
+
+Once you access an element, you can:
+
+Change Content -->
+
+element.innerText = "New Text";
+element.innerHTML = "<b>Bold Text</b>";
+
+
+<!-- Change Style -->
+
+element.style.backgroundColor = "yellow";
+element.style.fontSize = "20px";
+
+
+<!-- Change Attributes -->
+
+element.setAttribute("src", "image.png");
+element.id = "newId";
+
+
+<!-- Add/Remove Classes -->
+
+element.classList.add("highlight");
+element.classList.remove("old-class");

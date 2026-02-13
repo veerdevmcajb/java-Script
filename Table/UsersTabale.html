@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Users Table - JSONPlaceholder</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+  <h1>Users Table</h1>
+
+  <div class="controls">
+    <button id="loadBtn">Load Users</button>
+    <input type="text" id="searchInput" placeholder="Search by name or email..." disabled>
+    <select id="filterType" disabled>
+      <option value="">-- Filter By --</option>
+      <option value="company">Company</option>
+      <option value="city">City</option>
+      <option value="website">Website</option>
+    </select>
+    <select id="filterValue" disabled>
+      <option value="">All</option>
+    </select>
+    <button id="resetBtn" class="reset-btn" disabled>Clear Filters & Sorting</button>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th class="sortable" data-key="name">Name</th>
+        <th class="sortable" data-key="username">Username</th>
+        <th class="sortable" data-key="email">Email</th>
+        <th>Phone</th>
+        <th class="sortable" data-key="company">Company</th>
+      </tr>
+    </thead>
+    <tbody id="userTableBody">
+      <tr><td colspan="5" class="no-data">Click "Load Users" to fetch data</td></tr>
+    </tbody>
+  </table>
+<script src="./source.js"></script>
+</body>
+</html>

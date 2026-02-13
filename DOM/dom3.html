@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Event Handlers Example</title>
+    <script src="dom3.js" defer></script>
+</head>
+<body>
+    <h1 id="mouseArea" onmouseover="handleMouseOver()" onmouseout="handleMouseOut()">Mouse over me!</h1>
+    <input type="text" id="inputField" onfocus="handleFocus()" onblur="handleBlur()">
+    <button onclick="handleClick()">Click Me!</button>
+    <button ondblclick="handleDoubleClick()">Double Click Me!</button>
+    <form onsubmit="handleSubmit()">
+        <input type="submit" value="Submit Form">
+    </form>
+    <div id="location" onmousemove="handleMouseMove(event)" style="border: 1px solid black; height: 100px;">
+        Move mouse here
+    </div>
+</body>
+</html>

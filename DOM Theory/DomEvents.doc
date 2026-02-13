@@ -1,0 +1,112 @@
+ What is DOM Event Handling?
+
+An event is something that happens in the browser: user clicks, types, moves the mouse, submits a form, etc.
+
+Event handling means writing code that responds to these events.
+
+Ways to Attach Event Handlers
+
+Inline HTML Attribute
+
+<button onclick="alert('Clicked!')">Click Me</button>
+
+
+DOM Property
+
+const btn = document.getElementById("myBtn");
+btn.onclick = function() {
+  alert("Clicked!");
+};
+
+
+addEventListener (Preferred)
+
+const btn = document.getElementById("myBtn");
+btn.addEventListener("click", function() {
+  alert("Clicked!");
+});
+
+
+ Pros: Can attach multiple listeners, can remove later.
+
+ Mouse Events
+
+Mouse events happen when the user interacts with the mouse.
+
+Event	Description
+click	User clicks on an element
+dblclick	Double click
+mousedown	Mouse button pressed
+mouseup	    Mouse button released
+mouseover	Mouse enters element area
+mouseout	Mouse leaves element area
+mousemove	Mouse moves inside element
+
+Example:
+
+<div id="box" style="width:100px;height:100px;background:red;"></div>
+
+<script>
+const box = document.getElementById("box");
+
+box.addEventListener("click", () => alert("Box clicked!"));
+box.addEventListener("mouseover", () => box.style.background = "green");
+box.addEventListener("mouseout", () => box.style.background = "red");
+box.addEventListener("mousemove", (e) => {
+    console.log(`Mouse at X:${e.clientX}, Y:${e.clientY}`);
+});
+</script>
+
+
+e is the event object, contains info like mouse coordinates.
+
+ Input Events
+
+Input events happen when the user interacts with form elements.
+
+Event	Description
+input	Fires when the value of an input changes (typing)
+change	Fires when input loses focus after value changed
+focus	Input gains focus
+blur	Input loses focus
+keydown	Key is pressed down
+keyup	Key is released
+keypress	Key is pressed (deprecated in modern usage)
+
+Example:
+
+<input type="text" id="username" placeholder="Type here..." />
+
+<script>
+const input = document.getElementById("username");
+
+// On every input change
+input.addEventListener("input", (e) => {
+  console.log("Typing:", e.target.value);
+});
+
+// When input loses focus
+input.addEventListener("change", (e) => {
+  console.log("Final value:", e.target.value);
+});
+
+// Focus and blur events
+input.addEventListener("focus", () => console.log("Input focused"));
+input.addEventListener("blur", () => console.log("Input blurred"));
+</script>
+
+ Tips:
+
+Always prefer addEventListener over inline HTML.
+
+Use event delegation for dynamic elements (attach event to parent).
+
+The event object provides useful info:
+
+e.target → the element where the event occurred
+
+e.type → event type (click, input, etc.)
+
+e.preventDefault() → prevent default behavior (e.g., form submission)
+
+e.stopPropagation() → stop bubbling up

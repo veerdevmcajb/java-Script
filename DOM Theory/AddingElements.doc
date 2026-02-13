@@ -1,0 +1,71 @@
+Methods to Add Elements in the DOM
+
+document.createElement() → Create a new element.
+
+appendChild() → Add element as the last child.
+
+append() → Similar to appendChild() but can also insert text.
+
+prepend() → Add element at the beginning.
+
+insertBefore() → Insert before a specific node.
+
+innerHTML → Insert HTML directly (less safe if user input).
+
+Example 1: Append a new element
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Add Element Example</title>
+</head>
+<body>
+  <div id="container">
+    <h2>Student List</h2>
+    <ul id="students">
+      <li>Abhishek</li>
+      <li>Rohit</li>
+    </ul>
+  </div>
+
+  <script>
+    // 1. Create a new element
+    let newStudent = document.createElement("li");
+
+    // 2. Add text to it
+    newStudent.textContent = "Neha";
+
+    // 3. Append to the list
+    document.getElementById("students").appendChild(newStudent);
+  </script>
+</body>
+</html>
+
+
+Output:
+
+Abhishek  
+Rohit  
+Neha
+
+Example 2: Prepend an element
+let firstStudent = document.createElement("li");
+firstStudent.textContent = "First Student";
+document.getElementById("students").prepend(firstStudent);
+
+
+Adds "First Student" at the beginning of the list.
+
+Example 3: Insert Before
+let student = document.createElement("li");
+student.textContent = "Inserted Before Rohit";
+
+let list = document.getElementById("students");
+let rohit = list.children[1]; // <li>Rohit</li>
+
+list.insertBefore(student, rohit);
+
+Example 4: Using innerHTML
+document.getElementById("students").innerHTML += "<li>Kiran</li>";
+
+
+Note: innerHTML re-renders the whole element → less efficient, potential XSS security issue if using user input.
