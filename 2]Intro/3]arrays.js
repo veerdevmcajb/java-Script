@@ -85,7 +85,7 @@ console.log("Array with Initial Elements:", fruits);
 console.log("First Element:", fruits[0]); // Apple
 console.log("Second Element:", fruits[1]); // Orange
 console.log("Third Element:", fruits[2]); // Plum
-
+console.log("First Element",fruits[1]);
 /*
  Modifying array elements.
  Replace an element at a specific index.

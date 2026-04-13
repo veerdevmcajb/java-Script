@@ -248,21 +248,37 @@ console.log(arrSlice.slice(-2));  //* Vivo , Realme
 //  7, 11, 13
 
 // let num = 6;
-let num = 7;
-let PrimeStatus = true
-for (let i = 2; i < num ; i++){
-  console.log(`${num} % ${i} =`,num % i)
-  if(num % i === 0){
+// let num = 7;
+// let PrimeStatus = true
+// for (let i = 2; i < num ; i++){
+//   console.log(`${num} % ${i} =`,num % i)
+//   if(num % i === 0){
+//     PrimeStatus = false;
+//     break
+//   }
+// }
+
+// if(PrimeStatus){
+//   console.log(`${num} is a prime number`)
+// }else {
+//   console.log(`${num} is not a prime number`)
+// }
+
+let number = 7;
+let PrimeStatus = true;
+for(let i=2; i<number;i++){
+  if(number % i === 0){
     PrimeStatus = false;
-    break
+    break;
   }
 }
 
 if(PrimeStatus){
-  console.log(`${num} is a prime number`)
-}else {
-  console.log(`${num} is not a prime number`)
+  console.log(`${number}, is a prime number`)
+}else{
+  console.log(`${number} is not prime`);
 }
+
 
 
 

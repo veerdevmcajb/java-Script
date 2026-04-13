@@ -26,10 +26,18 @@ let numFromStr = Number(strNum); // Explicitly converts strNum to a number
 let nfs = +strNum; // Explicitly converts strNum to a number
 console.log(numFromStr); // Output: 123
 
+let strn="456";
+console.log(typeof(strn)); // string
+console.log(typeof(+strn));// number
+
 // Example 3: Boolean to Number
 let bool = true;
 let numFromBool = +bool; // Unary plus operator coerces bool to a number
 console.log(numFromBool); // Output: 1 (true is coerced to 1)
+
+let bool1=false;
+console.log(+bool1);
+
 
 // 3. Boolean Coercion
 
