@@ -78,3 +78,18 @@ function startTimer(duration) {
 startTimer(30);
 
 
+function dataFetch(){
+  fetch('https://jsonplaceholder.typicode.com/users')
+  .then(res=>res.json())
+  .then(data=>console.log(data))
+}
+
+dataFetch();
+
+function dataFetch(){
+  fetch('https://jsonplaceholder.typicode.com/albums')
+  .then(res=>res.json())
+  .then(data=>console.log(data))
+}
+
+dataFetch();

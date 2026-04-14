@@ -122,9 +122,9 @@ console.log("=======================");
         console.log(`${number} is not prime`);
     }
 
-    let numArr=[1,10,2,3,4,5,6,7,8,10,9,11];
-    let res=numArr.map((a)=>a*2);
-    console.log(res);
+     let numArr=[1,10,2,3,4,5,6,7,8,10,9,11];
+    // let res=numArr.map((a)=>a*2);
+    // console.log(res);
 
     let even = numArr.filter((a)=>a%2==0);
     console.log(even);
@@ -200,3 +200,64 @@ prices.sort(function(a,b){
     return a-b;
 });
 console.log(prices);
+
+
+const arr3=[10,20,30,40,50,10,20];
+console.log(arr3);
+
+for(let i=0; i<arr3.length;i++){
+    console.log(arr3[i])
+}
+
+
+// remove the duplicate values from array
+let check=[];
+let dupl=[];
+
+for(let i=0; i<arr3.length;i++){
+    if(!check.includes(arr3[i])){
+        check.push(arr3[i]);
+    }else{
+        dupl.push(arr3[i])
+    }
+}
+console.log(check);
+console.log("duplicates val is ", dupl);
+
+let resdup=new Set(arr3);
+console.log("Using Set obj",resdup);
+
+
+// let dup=[];
+// arr3.filter((a)=>!a.includes(dup)).arr3.push(arr3[i]).forEach(console.log());
+
+const personObject = {
+  name: "John",
+  age: 30,
+  city: "New York",
+};
+
+for(let a in personObject){
+    console.log(`key is ${a} , value is ${personObject[a]}`)
+}
+
+
+let numbArr=[1,2,3,4,5,6,7,8,9,10];
+
+// let resMap = numbArr.map(mult);
+// function mult(value,index,numbArr){
+//     return value*2
+// }
+
+// console.log(resMap);
+
+let resMap2 = numbArr.map((e)=>e*2);
+console.log(resMap2);
+
+let resSome= numbArr.some((e)=>e>8)
+console.log(resSome);
+
+let resEvery = numbArr.every((e)=>e>5);
+console.log(resEvery);
+
+

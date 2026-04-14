@@ -114,7 +114,7 @@ console.log( str.slice(-3, -1) ); //if
 
 // String substr(start, length)
 
-let op3 = "Hello this is Abhishek Dhone";
+let op3 = "Hello this is Shiv Chandankar";
 console.log(op3.substring(14, 10));//is   
  
 

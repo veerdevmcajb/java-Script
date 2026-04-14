@@ -1,7 +1,7 @@
 // String Manipulation – Using for Loop
 
 // 1. Reverse a string without using built-in reverse methods.
-var str = "Abhishek";
+var str = "Shiv";
 var reverse = "";
 for (let i = str.length - 1; i >= 0; i--) {
   // console.log(str[i])
@@ -206,35 +206,151 @@ for (let j = 0; j < arr.length; j++){
 console.log(longWord)
 
 // 14. Count uppercase and lowercase letters separately.
+let name="ShIvAnAnD";
+let uppcase=[];
+let lowercase=[];
+for(let i=0;i<name.length;i++){
+  if(name[i]>='A' && name[i]<='Z'){
+    uppcase.push(name[i]);
+  }else{
+    lowercase.push(name[i]);
+  }
+}
+console.log("uppcase : ",uppcase);
+console.log("lowercase : ",lowercase);
+
+
+let uppcArr = [...name].filter((a)=> a>='A' && a<='Z');
+console.log("using filert ", uppcArr);
+let loweArr=[...name].filter((a)=> a>='a' && a<='z');
+console.log("lowerArr using filter ",loweArr);
+
+
 
 // 15. Replace every occurrence of a given word with another word.
+let text = "Hello world, world is beautiful.";
+console.log(text.replaceAll("world","Earth"));
 
 // Array Manipulation – Using for Loop
 
 // 1. Find the maximum number in an array.
+  let arr=[10,20,40,30,50,90];
+  let max=arr.reduce((a,b)=>{
+   if(a>b)
+     return a;
+    else{
+      return b;
+    }
+  });
+console.log(max);
+
 
 // 2. Find the minimum number in an array.
+   let arr=[10,20,40,30,50,90];
+   let min=arr.reduce((a,b)=>{
+    if(a<b){
+      return a;
+    }else{
+      return b;
+    }
+   })
 
+   console.log(min);
+   
 // 3. Calculate the sum of all elements in an array.
+ let arr=[10,20,40,30,50,90];
+ let sum= arr.reduce((a,b)=>a+b)
+console.log(sum);
+
 
 // 4. Calculate the average of an array of numbers.
-
+ let arr=[10,20,40,30,50,90];
+   let avgres= arr.reduce((a,b)=>a+b)/arr.length
+   console.log(avgres);
+   
 // 5. Reverse an array without using .reverse().
+ let arr=[10,20,40,30,50,90];
+let revarr=[];
+for(let i=arr.length-1;i>=0; i--){
+    revarr.push(arr[i])
+}
+console.log(revarr);
+
 
 // 6. Remove duplicates from an array.
+ let arr=[10,20,40,30,50,90,10,20];
+ let withoutdup=[];
+ let dup=[];
+ for(let i=0;i<arr.length;i++){
+  if(!withoutdup.includes(arr[i])){
+    withoutdup.push(arr[i])
+  }else{
+    dup.push(arr[i]);
+  }
+ }
+ console.log("Without dup ",withoutdup);
+ console.log("dup values ", dup);
+ 
+
 
 // 7. Find the index of a specific element in an array.
+let frits=["apple","banana","mango","orange","kivi"];
+
 
 // 8. Count how many times a specific number appears in an array.
+ let arr=[10,20,40,30,50,90,10,20];
+let obj={};
+for(let i=0;i<arr.length;i++){
+  if(!obj[arr[i]]){
+   obj[arr[i]]=1;
+  }else{
+    obj[arr[i]]= obj[arr[i]]+1;
+  }
+}
+console.log(obj);
+
 
 // 9. Merge two arrays into a single array (without concat).
+let arr1=[1,2,3,4];
+let arr2=[5,6,7];
+console.log([...arr1, ...arr2]);
+
 
 // 10. Create a new array containing only even numbers.
+ let arr=[1,2,4,3,5,9];
+
+let res=arr.filter((a)=>a%2==0);
+console.log(res);
+
+ let even = numArr.filter((a)=>a%2==0);
+    console.log(even);
+
 
 // 11. Create a new array containing only odd numbers.
 
+ let arr=[1,2,4,3,5,9];
+let odd=arr.filter((e)=>e%2!=0);
+console.log(odd);
+
+
 // 12. Multiply each element in the array by 2.
+ let arr=[10,20,40,30,50,90];
+let mult=arr.map((a)=>a*2);
+console.log(mult);
 
 // 13. Shift all elements one position to the left.
 
+
 // 14. Find the second largest element in an array.
+ let arr=[10,20,40,30,50,90];
+let secLarge = arr.sort().reverse();
+console.log(secLarge[1]);
+
+//Replace negative numbers with 0
+let arr = [5, -3, 7, -1, 9];
+for(let i=0;i<arr.length;i++){
+  if(arr[i]<0){
+    arr[i]=0;
+  }
+}
+console.log(arr);
